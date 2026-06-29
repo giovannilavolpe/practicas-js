@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+    <!-- <div id="show-number"></div> -->
+    <!-- <form action="index.html"> -->
+        <!-- <button id="incrementar">+</button>
+        <button id="decrementar">-</button> -->
+    <!-- </form> -->
+    <span>Contador de goles</span>
+    <div id="show-number"></div>
+    <button id="gol">GOL!</button>
+
+    <script>
+
+        const cajita = document.getElementById('show-number');
+        const button = document.getElementById('gol');
+        let goles = 0;
+        cajita.textContent = `Nro de goles: ${goles}`;
+
+        function sumar() {
+            goles++;
+        cajita.textContent = `Nro de goles: ${goles}`;
+        }
+
+        button.addEventListener("click", sumar);
+    </script>
+</body>
+</html>
