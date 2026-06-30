@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ex2</title>
+</head>
+<body>
+  <h1>Botón con bug</h1>
+  <p>Abrí la consola (F12) y observá cuándo aparece el mensaje.</p>
+
+  <button id="boton">Tocame</button>
+
+  <script>
+    function avisar() {
+      console.log("¡Hiciste clic!");
+    }
+
+    const boton = document.querySelector("#boton");
+
+    // 🐛 Este código tiene el bug. Arreglalo.
+    boton.addEventListener("click", avisar); // saque el parentesis. Antes era "avisar());". El parentesis hace que la funcion la ejecute en el momento que lo lee. De esta forma, solo se ejecuta cuando se presiona el boton.
+    </script>
+
+
+</body>
+</html>
