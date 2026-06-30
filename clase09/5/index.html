@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <style>
+    body {
+      font-family: sans-serif;
+      max-width: 420px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+    input {
+      font-size: 1.1rem;
+      padding: 0.5rem;
+      width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 1rem;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      padding: 0.5rem 1rem;
+      margin-bottom: 0.4rem;
+      background-color: #f0f0f0;
+      border-radius: 4px;
+    }
+  </style>
+
+
+  <h1>Buscar jugador</h1>
+
+  <input id="buscador" placeholder="Escribí para filtrar...">
+
+  <ul id="lista"></ul>
+
+  <script>
+    const jugadores = [
+      "Lionel Messi",
+      "Santiago Barua",
+      "Tobias Manquez",
+      "Enzo Fernández",
+      "Rodrigo De Paul",
+      "Ángel Di María",
+      "Cristiano Ronaldo",
+      "Kylian Mbappé",
+      "Giovanni La Volpe",
+      "Alan Forciniti Patsco"
+    ];
+
+    const buscador = document.getElementById("buscador");
+    const lista = document.querySelector("#lista");
+
+    for (const jugador of jugadores) {
+
+      const item = document.createElement("li");
+      lista.appendChild(item);
+      item.textContent = jugador;
+
+      buscador.addEventListener("input", (event) => {
+
+        const text = event.target.value.toLowerCase();
+
+        const coincide = item.textContent.toLowerCase().includes(text);
+        item.style.display = coincide ? "" : "none";
+
+      });
+    };
+  </script>
+</body>
+</html>
