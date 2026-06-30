@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+
+    </ul>
+
+    <script>
+        const grupos = ["Grupo A", "Grupo B", "Grupo C", "Grupo D", "Grupo E"];
+
+        const ul = document.querySelector("ul")
+
+        grupos.forEach((elemento) => {
+        const li = document.createElement("li");
+            li.textContent = elemento;
+            ul.appendChild(li);
+        });
+
+
+    </script>
+</body>
+</html>
