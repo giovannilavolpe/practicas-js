@@ -64,7 +64,7 @@
 
   <p id="sin-resultados" style="display:none">No se encontraron equipos.</p>
 
-  <script>
+  <!-- <script>
 
     const busqueda = document.getElementById("buscador"); // declaramos una variable para el buscador.
     const listaEquipos = document.getElementById("lista"); // declaramos una variable para la ul.
@@ -88,7 +88,39 @@
 
     });
     });
-    /// tiene errores de posicion e identacion
+    /// tiene errores de posicion e identacion -->
+  </script>
+
+  <script>
+
+    const busqueda = document.getElementById("buscador"); // declaramos una variable para el buscador.
+    const listaEquipos = document.getElementById("lista"); // declaramos una variable para la ul.
+    const equipos = Array.from(listaEquipos.getElementsByTagName("li")); // declaramos un array por cada li
+    const sinResultados = document.getElementById("sin-resultados"); // declaramos una variable para el p.
+
+    busqueda.addEventListener("input", () => {          // listener para el input
+    const texto = busqueda.value.toLowerCase().trim();  // el contenido del input de busqueda lo pasamos a una variable "texto". lowercase para que pase el texto a minuscula, trim para que elimine los espacios de sobra.
+
+        let encontrado = false;                         // declaro una variable para definirla sobre cuando encuentro un equipo o no, asi despues poder hacer aparecer el p.
+
+        equipos.forEach((equipo) => {
+        const nombre = equipo.textContent.toLowerCase();     // declaro una variable 'nombre' para cada linea que recorra el forEach.  
+
+            if (nombre.includes(texto)) {                   // Si 'nombre' (del equipo) contiene 'texto' (lo que entra en input), hacemos:
+                equipo.style.display = "block";             // para cuando es true, mostramos el equipo que coincide.
+                encontrado = true;
+            } else {
+                equipo.style.display = "none";              // para cuando es false, no mostramos ningun equipo.
+            }
+        });
+
+        if (encontrado) {
+            sinResultados.style.display = "none";           // cuando encontrado es true, no mostramos el p
+        } else {
+            sinResultados.style.display = "block";          // para cuando encontrado es false, mostramos el p
+        }
+    }); 
+    
   </script>
 </body>
 </html>
