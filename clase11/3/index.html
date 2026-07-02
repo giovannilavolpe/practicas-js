@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+    // const roto1 = "{'nombre': 'Messi', 'goles': 8}";
+    // const roto2 = '{nombre: "Messi", goles: 8}';
+    // const roto3 = '{"nombre": "Messi", "goles": 8,}';
+        // Sin tocar nada, puedo ver que tiene un problema general con las comillas. roto1 tiene los roles de las comillas invertidos. A roto2 le faltan las comillas a las claves. roto3 tiene comilla al final.
+
+    const roto1 = '{"nombre": "Messi", "goles": 4}';
+    const roto2 = '{"nombre": "Messi", "goles": 5}';
+    const roto3 = '{"nombre": "Messi", "goles": 6}';
+
+    const corregido1 = JSON.parse(roto1);
+    console.log(corregido1); // corregido roto1
+
+    const corregido2 = JSON.parse(roto2);
+    console.log(corregido2); // corregido roto2
+
+    const corregido3 = JSON.parse(roto3);
+    console.log(corregido3); // corregido roto3
+
+
+
+    </script>
+
+
+
+</body>
+</html>
