@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practica 05 — Filtro de equipos</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 480px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      font-size: 1rem;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+      margin-bottom: 1rem;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #4a90e2;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      padding: 0.5rem 0.25rem;
+      border-bottom: 1px solid #eee;
+      font-size: 1rem;
+    }
+
+    #sin-resultados {
+      color: #888;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>Equipos del Mundial 2026</h1>
+
+  <input id="buscador" type="text" placeholder="Buscar equipo...">
+
+  <ul id="lista">
+    <li>Argentina</li>
+    <li>Brasil</li>
+    <li>Francia</li>
+    <li>Alemania</li>
+    <li>España</li>
+    <li>Portugal</li>
+    <li>Marruecos</li>
+    <li>Japon</li>
+  </ul>
+
+  <p id="sin-resultados" style="display:none">No se encontraron equipos.</p>
+
+  <!-- <script>
+
+    const busqueda = document.getElementById("buscador"); // declaramos una variable para el buscador.
+    const listaEquipos = document.getElementById("lista"); // declaramos una variable para la ul.
+    const equipos = Array.from(listaEquipos.getElementsByTagName("li")); // declaramos un array por cada li
+
+    busqueda.addEventListener("input", () => { // listener para el input
+      const texto = busqueda.value.toLowerCase().trim(); // el contenido del input de busqueda lo pasamos a una variable "texto". lowercase para que pase el texto a minuscula, trim para que elimine los espacios de sobra.
+
+    equipos.forEach((equipo) => {
+        const nombre = equipo.textContent.toLowerCase(); // declaramos una variable que devuelva todos los elementos del array en minuscula. "nombre"
+        equipo.style.display = nombre.includes(texto) ? "block" : "none";
+
+        const sinResultados = document.getElementById("sin-resultados")
+
+        if (nombre.includes(texto)) {
+            sinResultados.style.display = "none"
+        }
+        else {
+            sinResultados.style.display = "block"
+        }
+
+    });
+    });
+    /// tiene errores de posicion e identacion -->
+  </script>
+
+  <script>
+
+    const busqueda = document.getElementById("buscador"); // declaramos una variable para el buscador.
+    const listaEquipos = document.getElementById("lista"); // declaramos una variable para la ul.
+    const equipos = Array.from(listaEquipos.getElementsByTagName("li")); // declaramos un array por cada li
+    const sinResultados = document.getElementById("sin-resultados"); // declaramos una variable para el p.
+
+    busqueda.addEventListener("input", () => {          // listener para el input
+    const texto = busqueda.value.toLowerCase().trim();  // el contenido del input de busqueda lo pasamos a una variable "texto". lowercase para que pase el texto a minuscula, trim para que elimine los espacios de sobra.
+
+        let encontrado = false;                         // declaro una variable para definirla sobre cuando encuentro un equipo o no, asi despues poder hacer aparecer el p.
+
+        equipos.forEach((equipo) => {
+        const nombre = equipo.textContent.toLowerCase();     // declaro una variable 'nombre' para cada linea que recorra el forEach.  
+
+            if (nombre.includes(texto)) {                   // Si 'nombre' (del equipo) contiene 'texto' (lo que entra en input), hacemos:
+                equipo.style.display = "block";             // para cuando es true, mostramos el equipo que coincide.
+                encontrado = true;
+            } else {
+                equipo.style.display = "none";              // para cuando es false, no mostramos ningun equipo.
+            }
+        });
+
+        if (encontrado) {
+            sinResultados.style.display = "none";           // cuando encontrado es true, no mostramos el p
+        } else {
+            sinResultados.style.display = "block";          // para cuando encontrado es false, mostramos el p
+        }
+    }); 
+    
+  </script>
+</body>
+</html>
