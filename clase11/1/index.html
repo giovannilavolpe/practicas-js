@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>1</h1>
+    
+
+
+<script>
+
+
+    const jugador = {
+        nombre: "Messi",
+        pais: "Argentina",
+        goles: 8
+    };
+
+    const texto = JSON.stringify(jugador);
+    console.log(texto); // devuelve el string completo
+    console.log(typeof texto); // devuelve string
+
+    console.log(texto.nombre); // devuelve 'undefined'. Esto es porque al ser 'texto' un string, no lee 'nombre' como variable.
+
+    const objeto = JSON.parse(texto); // convierte a objeto denuevo
+    console.log(objeto.nombre); // ahora si puede leer la variable 'nombre'
+    console.log(typeof objeto); // ahora es un objeto
+
+
+
+</script>
+
+</body>
+</html>
